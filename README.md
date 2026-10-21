@@ -27,7 +27,7 @@ npm run dev          # local preview with hot reload
 npm run publish      # build, pre-render every page, copy the result to the repo root
 ```
 
-Then commit and push. GitHub Pages serves the repo root, so you don't need to change any settings.
+Then commit and push. GitHub Pages serves the repo root, so you don't need to change any settings. Release, rollback, custom-domain and troubleshooting notes are in [DEVOPS.md](DEVOPS.md).
 
 For a custom domain at the root (for example `papersipcompany.com`), build with `BASE_PATH=/ npm run publish`.
 
@@ -56,7 +56,7 @@ Gold is used for fills, rules and highlights, always with black text on it. Gold
 - React hydrates in interruptible slices (`startTransition`), so the page stays responsive while it takes over.
 - Three.js (about 135 KB gzipped) loads only after the visitor interacts, or about 1.5 s after load on desktop. Until then, each model shows as a pre-rendered WebP still. Phones with Data Saver on, or with very little memory, keep the stills.
 - Models are built one per frame, so the 3D start-up never freezes scrolling. Scenes pause when they are off-screen and are disposed when you leave the page.
-- SoundCloud players, TV videos and the Google map load only when someone presses play or "Show map".
+- Radio, TV and digital clips, SoundCloud players and the Google map load only when someone presses play or "Show map".
 
 ## Pages
 
@@ -77,4 +77,4 @@ Service URLs match the existing WordPress site.
 
 ## Media
 
-Portfolio images and client logos load from `papersipcompany.com/wp-content/uploads/`. TV commercials load from `cariotauto.in`, and radio spots from SoundCloud. A tile whose image fails to load hides itself.
+The Our Work page uses media from the Papersip credentials deck, stored in `app/public/work/` (WebP photos, MP4 clips, MP3 spots). Client logos and the service-page galleries still load from `papersipcompany.com/wp-content/uploads/`, TV clips on service pages from `cariotauto.in`, and service-page radio spots from SoundCloud. A tile whose image fails to load hides itself. See [DEVOPS.md](DEVOPS.md) for the full list of external dependencies.
